@@ -5,5 +5,5 @@ public abstract class ModuleIO {
     abstract double getOrientation();
     abstract void setSpeed(double speed);
     abstract void setOrientation(double orientation);
-    abstract void setOrientationOffset(double offset);
+    abstract void setOrientationOffset(double o);
 }

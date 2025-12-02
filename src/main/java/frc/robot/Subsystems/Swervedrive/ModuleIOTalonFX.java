@@ -1,10 +1,15 @@
 package frc.robot.Subsystems.Swervedrive;
 
+import static edu.wpi.first.units.Units.RadiansPerSecond;
+
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.VelocityVoltage;
 import com.ctre.phoenix6.controls.PositionVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
+
+import edu.wpi.first.math.util.Units;
+import frc.robot.Constants;
 
 public class ModuleIOTalonFX extends ModuleIO {
 
@@ -13,7 +18,7 @@ public class ModuleIOTalonFX extends ModuleIO {
     double driveMetersPerRotation; // replace with actual values
     double steerRadiansPerRotation; // replace with actual values
 
-    public ModuleIOTalonFX(int driveID, int turnID, double driveKFF, double driveKP, double driveKI, double driveKD, double turnKP, double turnKI, double turnKD) {
+    public ModuleIOTalonFX(int driveID, int turnID, int absoluteEncoderID, double driveKFF, double driveKP, double driveKI, double driveKD, double turnKP, double turnKI, double turnKD, double driveMetersPerRotation, double steerRadiansPerRotation, double offset) {
         this.drive = new TalonFX(driveID);
         this.turn = new TalonFX(turnID);
         this.offset = offset;
@@ -38,7 +43,7 @@ public class ModuleIOTalonFX extends ModuleIO {
 
     @Override
     public double getSpeed() {
-        return this.drive.getVelocity().getValueAsDouble() * this.driveMetersPerRotation;
+        return this.drive.getVelocity().getValue().in(RadiansPerSecond) * Units.inchesToMeters(Constants.WHEEL_RADIUS_IN_INCHES);
     }
 
     @Override

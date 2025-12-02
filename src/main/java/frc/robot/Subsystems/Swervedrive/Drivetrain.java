@@ -8,6 +8,8 @@ import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
+import frc.robot.RobotMap;
 
 public class Drivetrain extends SubsystemBase {
 
@@ -22,6 +24,11 @@ public class Drivetrain extends SubsystemBase {
         this.backRight = backRight;
         this.gyro = gyro;
         this.kinematics = new SwerveDriveKinematics(frontLeftOffset, frontRightOffset, backLeftOffset, backRightOffset);
+
+        this.frontLeft = new ModuleIOTalonFX(RobotMap.FRONT_LEFT_DRIVE_ID, RobotMap.FRONT_LEFT_TURN_ID, RobotMap.FRONT_LEFT_ENCODER_ID, Constants.DRIVE_KFF, Constants.DRIVE_KP, Constants.DRIVE_KI, Constants.DRIVE_KD, Constants.TURN_KP, Constants.TURN_KI, Constants.TURN_KD, Constants.WHEEL_RADIUS_IN_INCHES * 2 * Math.PI, Math.PI, Constants.FRONT_LEFT_OFFSET);
+        this.frontRight = new ModuleIOTalonFX(RobotMap.FRONT_RIGHT_DRIVE_ID, RobotMap.FRONT_RIGHT_TURN_ID, RobotMap.FRONT_RIGHT_ENCODER_ID, Constants.DRIVE_KFF, Constants.DRIVE_KP, Constants.DRIVE_KI, Constants.DRIVE_KD, Constants.TURN_KP, Constants.TURN_KI, Constants.TURN_KD, Constants.WHEEL_RADIUS_IN_INCHES * 2 * Math.PI, Math.PI, Constants.FRONT_RIGHT_OFFSET);
+        this.backLeft = new ModuleIOTalonFX(RobotMap.BACK_LEFT_DRIVE_ID, RobotMap.BACK_LEFT_TURN_ID, RobotMap.BACK_LEFT_ENCODER_ID, Constants.DRIVE_KFF, Constants.DRIVE_KP, Constants.DRIVE_KI, Constants.DRIVE_KD, Constants.TURN_KP, Constants.TURN_KI, Constants.TURN_KD, Constants.WHEEL_RADIUS_IN_INCHES * 2 * Math.PI, Math.PI, Constants.BACK_LEFT_OFFSET);
+        this.backRight = new ModuleIOTalonFX(RobotMap.BACK_RIGHT_DRIVE_ID, RobotMap.BACK_RIGHT_TURN_ID, RobotMap.BACK_RIGHT_ENCODER_ID, Constants.DRIVE_KFF, Constants.DRIVE_KP, Constants.DRIVE_KI, Constants.DRIVE_KD, Constants.TURN_KP, Constants.TURN_KI, Constants.TURN_KD, Constants.WHEEL_RADIUS_IN_INCHES * 2 * Math.PI, Math.PI, Constants.BACK_RIGHT_OFFSET);
     }
 
     public void setSwerveModuleStates(SwerveModuleState[] states) {
