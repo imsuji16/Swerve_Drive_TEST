@@ -33,7 +33,6 @@ public class RobotContainer {
     this.swerveDrive.setDefaultCommand(
       this.swerveDrive.swerveDriveCommand(vx, vy, vTheta)
     );
-
   }
 
   public Command getAutonomousCommand() {

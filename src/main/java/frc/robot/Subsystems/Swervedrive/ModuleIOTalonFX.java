@@ -8,15 +8,16 @@ import com.ctre.phoenix6.controls.PositionVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
+import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.util.Units;
 import frc.robot.Constants;
 
-public class ModuleIOTalonFX extends ModuleIO {
+public class ModuleIOTalonFX implements ModuleIO {
 
     TalonFX drive, turn;
     double offset = 0;
-    double driveMetersPerRotation; // replace with actual values
-    double steerRadiansPerRotation; // replace with actual values
+    double driveMetersPerRotation = Constants.driveMetersPerRotation;
+    double steerRadiansPerRotation = Constants.steerRadiansPerRotation;
 
     public ModuleIOTalonFX(int driveID, int turnID, int absoluteEncoderID, double driveKFF, double driveKP, double driveKI, double driveKD, double turnKP, double turnKI, double turnKD, double driveMetersPerRotation, double steerRadiansPerRotation, double offset) {
         this.drive = new TalonFX(driveID);
