@@ -20,10 +20,10 @@ public class Constants {
     public static final double DRIVE_GEAR_RATIO = 5.90277777777778;
     public static final double TURN_GEAR_RATIO = 21.428571428571427;
 
-    public static final double FRONT_LEFT_OFFSET = 11.5;
-    public static final double FRONT_RIGHT_OFFSET = -11.5;
-    public static final double BACK_LEFT_OFFSET = 11.5;
-    public static final double BACK_RIGHT_OFFSET = -11.5;
+    public static final Translation2d FRONT_LEFT_OFFSET = new Translation2d(11.5, 11.5);
+    public static final Translation2d FRONT_RIGHT_OFFSET = new Translation2d(11.5, -11.5);
+    public static final Translation2d BACK_LEFT_OFFSET = new Translation2d(-11.5, 11.5);
+    public static final Translation2d BACK_RIGHT_OFFSET = new Translation2d(-11.5, -11.5);
  
     public static final double WHEEL_RADIUS_IN_INCHES = 2.0;
 

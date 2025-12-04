@@ -22,6 +22,10 @@ public class RobotContainer {
   GyroIO gyro;
 
   public RobotContainer() {
+    this.frontLeftOffset = Constants.FRONT_LEFT_OFFSET;
+    this.frontRightOffset = Constants.FRONT_RIGHT_OFFSET;
+    this.backLeftOffset = Constants.BACK_LEFT_OFFSET;
+    this.backRightOffset = Constants.BACK_RIGHT_OFFSET;
     this.swerveDrive = new Drivetrain(frontLeft, frontLeftOffset, frontRight, frontRightOffset, backLeft, backLeftOffset, backRight, backRightOffset, gyro);
     configureBindings();
   }
